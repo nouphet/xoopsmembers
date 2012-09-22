@@ -24,9 +24,9 @@
 //  along with this program; if not, write to the Free Software              //
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
-$modversion['name'] = _IM_MEMBERS_NAME;
+$modversion['name'] = _MI_MEMBERS_NAME;
 $modversion['version'] = 1.00;
-$modversion['description'] = _IM_MEMBERS_DESC;
+$modversion['description'] = _MI_MEMBERS_DESC;
 $modversion['credits'] = "The XOOPS Project";
 $modversion['author'] = "Kazumi Ono<br />( http://www.myweb.ne.jp/ )";
 $modversion['help'] = "xoopsmembers.html";
