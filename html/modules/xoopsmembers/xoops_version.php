@@ -24,8 +24,11 @@
 //  along with this program; if not, write to the Free Software              //
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
 //  ------------------------------------------------------------------------ //
+if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
+$mydirname = basename( dirname( __FILE__ ) ) ;
+
 $modversion['name'] = _MI_MEMBERS_NAME;
-$modversion['version'] = 1.00;
+$modversion['version'] = 1.01;
 $modversion['description'] = _MI_MEMBERS_DESC;
 $modversion['credits'] = "The XOOPS Project";
 $modversion['author'] = "Kazumi Ono<br />( http://www.myweb.ne.jp/ )";
@@ -33,13 +36,14 @@ $modversion['help'] = "xoopsmembers.html";
 $modversion['license'] = "GPL see LICENSE";
 $modversion['official'] = "yes";
 $modversion['image'] = "members_slogo.png";
-$modversion['dirname'] = "xoopsmembers";
+$modversion['dirname'] = "$mydirname";
 
-$modversion['cube_style'] = true;
+$modversion['cube_style'] = false;
 
 // Admin things
-$modversion['hasAdmin'] = 0;
-$modversion['adminmenu'] = "";
+$modversion['hasAdmin'] = 1;
+$modversion['adminindex'] = 'admin/index.php' ;
+$modversion['adminmenu'] = 'admin/menu.php' ;
 
 // Menu
 $modversion['hasMain'] = 1;
