@@ -1,52 +1,45 @@
 <link rel="stylesheet" type="text/css" href="xoopsmembers.css" />
-<div>
-	<a href="index.php" xmlns="http://www.w3.org/1999/html"><{$lang_search}></a>&nbsp;<span style="font-weight:bold;">&raquo;&raquo;</span>&nbsp;<{$lang_results}><br/><br/>
-</div>
+<h1><{$smarty.const._MI_MEMBERS_NAME}></h1>
 
-<{if $total_found != 0}>
-	<div class="members_box">
-		<{section name=i loop=$users}>
-			<table class="outer" style="width:100%; margin-bottom: 20px;">
-				<tr valign="middle">
-					<td width="50%" rowspan="9" align="center" class="even">
-						<a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>">
-							<img class="xoopsmembers_avator" src="<{$users[i].id|xoops_user_avatarize}>">
-						</a>
-					</td>
-				</tr>
-				<tr class="user_line">
-					<td width="50%" class="odd">
-						<a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><{$users[i].name}></a>
-					</td>
-				</tr>
-				<tr class="user_line">
-					<td width="50%" class="even"><{$users[i].realname}></td>
-				</tr>
-				<tr class="user_line">
-					<td width="50%" class="odd"><{$users[i].email}></td>
-				</tr>
-				<tr class="user_line">
-					<td width="50%" class="even"><{$users[i].pmlink}></td>
-				</tr>
-				<tr class="user_line">
-					<td width="50%" class="odd"><{$users[i].website}></td>
-				</tr>
-				<tr class="user_line">
-					<td width="50%" align="center" class="even"><{$users[i].registerdate}></td>
-				</tr>
-				<tr class="user_line">
-					<td width="50%" class="odd"><{$users[i].lastlogin}></td>
-				</tr>
-				<tr class="user_line">
-					<td width="50%" class="even"><{$users[i].posts}></td>
-				</tr>
-			</table>
-		<{/section}>
-	</div>
-	<div style="text-align:center">
-		<{$pagenav}>
-		<{$lang_numfound}>
-	</div>
+<{if $total > 0}>
+	<div><{$smarty.const._MM_USERSFOUND|sprintf:$total}></div>
 <{else}>
-	<{$lang_nonefound}>
+	<div><{$smarty.const._MM_NOFOUND}></div>
 <{/if}>
+
+<{foreach item="user" from=$users}>
+	<{cycle reset=true print=false values="odd,even"}>
+	<table class="outer membersUser">
+		<tr>
+			<td class="odd membersLeftColumn">
+				<div class="membersUserAvatarBox">
+					<a href="<{$xoops_url}>/userinfo.php?uid=<{$user->get('uid')}>">
+						<img src="<{$user->get('uid')|xoops_user_avatarize}>" class="memberUserAvatar" />
+					</a>
+				</div>
+			</td>
+			<td class="membersRightColumn">
+				<div class="membersUserProperties">
+					<div class="<{cycle values="odd,even"}>">
+						<a href="<{$xoops_url}>/userinfo.php?uid=<{$user->get('uid')}>"><{$user->get('uname')|escape}></a>
+					</div>
+					<div class="<{cycle values="odd,even"}>">
+						<{$user->get('name')|escape}>
+					</div>
+					<div class="<{cycle values="odd,even"}>">
+						<{mailto address=$user->get('email') encode="javascript"}>
+					</div>
+					<div class="<{cycle values="odd,even"}>">
+						<a href="<{$user->get('url')|escape}>" rel="external"><{$user->get('url')|escape}></a>
+					</div>
+					<div class="<{cycle values="odd,even"}>">
+						<{$user->get('user_regdate')|xoops_formattimestamp:l}>
+					</div>
+					<div class="<{cycle values="odd,even"}>">
+						<{$user->get('last_login')|xoops_formattimestamp:l}>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+<{/foreach}>
