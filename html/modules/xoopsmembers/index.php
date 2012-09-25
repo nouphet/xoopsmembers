@@ -27,6 +27,7 @@
 include "../../mainfile.php";
 
 $op = "form";
+$_POST['user_sort'] = null; // TODO >> this is temporary fixation
 //if ( isset($_POST['op']) && $_POST['op'] == "submit" ) {
 	$op = "submit";
 //}
