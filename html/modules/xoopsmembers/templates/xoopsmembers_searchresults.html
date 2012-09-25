@@ -1,24 +1,71 @@
-<a href="index.php"><{$lang_search}></a>&nbsp;<span style="font-weight:bold;">&raquo;&raquo;</span>&nbsp;<{$lang_results}><br /><br />
+<a href="index.php" xmlns="http://www.w3.org/1999/html"><{$lang_search}></a>&nbsp;<span
+		style="font-weight:bold;">&raquo;&raquo;</span>&nbsp;<{$lang_results}><br/><br/>
+<link rel="stylesheet" type="text/css" href="css/xoopsmembers.css" />
 
 <{if $total_found != 0}>
-<table class="outer" cellspacing="1" cellpadding="4">
-  <tr>
-    <th align="center"><{$lang_avatar}></th><th align="center"><{$lang_username}></th><th align="center"><{$lang_realname}></th><th align="center"><{$lang_email}></th><th align="center"><{$lang_privmsg}></th><th align="center"><{$lang_url}></th><th align="center"><{$lang_regdate}></th><th align="center"><{$lang_lastlogin}></th><th align="center"><{$lang_posts}></th>
-    <{if $is_admin == true}>
-    <th align="center"><{$lang_admin}></th>
-    <{/if}>
-  </tr>
-  <{section name=i loop=$users}>
-  <tr valign="middle">
-    <td class="even"><{$users[i].avatar}></td><td class="odd"><a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><{$users[i].name}></a></td><td class="even"><{$users[i].realname}></td><td align="center" class="odd"><{$users[i].email}></td><td class="even" align="center"><{$users[i].pmlink}></td><td class="odd" align="center"><{$users[i].website}></td><td class="even" align="center"><{$users[i].registerdate}></td><td class="odd" align="center"><{$users[i].lastlogin}></td><td class="even" align="center"><{$users[i].posts}></td>
-    <{if $is_admin == true}><td class="odd" align="center"><{$users[i].adminlink}></td><{/if}>
-  </tr>
-  <{/section}>
+<div class="members_box">
+<!--
+ <table class="outer" cellspacing="1" cellpadding="4">
+	 <tr>
+		 <th align="center"><{$lang_avatar}></th>
+		 <th align="center"><{$lang_username}></th>
+		 <th align="center"><{$lang_realname}></th>
+		 <th align="center"><{$lang_email}></th>
+		 <th align="center"><{$lang_privmsg}></th>
+		 <th align="center"><{$lang_url}></th>
+		 <th align="center"><{$lang_regdate}></th>
+		 <th align="center"><{$lang_lastlogin}></th>
+		 <th align="center"><{$lang_posts}></th>
+		 <{if $is_admin == true}>
+		 <th align="center"><{$lang_admin}></th>
+		 <{/if}>
+	 </tr>
 </table>
+-->
+<table class="outer" cellspacing="1" cellpadding="4" style="width:100%">
+	<{section name=i loop=$users}>
+	<tr valign="middle">
+		<td width="50%" rowspan="10" align="center" valign="middle" class="even">
+			<a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>">
+				<img class="xoopsmembers_avator" src="<{$users[i].id|xoops_user_avatarize}>">
+			</a></td>
+	</tr>
+	<tr valign="middle" class="user_line">
+		<td width="50%" class="odd"><a href="<{$xoops_url}>/userinfo.php?uid=<{$users[i].id}>"><{$users[i].name}></a></td>
+	</tr>
+	<tr valign="middle" class="user_line">
+		<td width="50%" class="even"><{$users[i].realname}></td>
+	</tr>
+	<tr valign="middle" class="user_line">
+		<td width="50%" class="odd"><{$users[i].email}></td>
+	</tr>
+	<tr valign="middle" class="user_line">
+		<td width="50%" class="even"><{$users[i].pmlink}></td>
+	</tr>
+	<tr valign="middle" class="user_line">
+		<td width="50%" class="odd"><{$users[i].website}></td>
+	</tr>
+	<tr valign="middle" class="user_line">
+		<td width="50%" align="center" class="even"><{$users[i].registerdate}></td>
+	</tr>
+	<tr valign="middle" class="user_line">
+		<td width="50%" class="odd"><{$users[i].lastlogin}></td>
+	</tr>
+	<tr valign="middle" class="user_line">
+		<td width="50%" class="even"><{$users[i].posts}></td>
+	</tr>
+	<tr valign="middle" class="user_line">
+		<{if $is_admin == true}>
+		<td width="50%" class="odd"><{$users[i].adminlink}></td>
+		<{/if}>
+	</tr>
+	<{/section}>
+</table>
+</div>
 <div style="text-align:center">
-  <{$pagenav}>
-  <{$lang_numfound}>
+	<{$pagenav}>
+	<{$lang_numfound}>
 </div>
 <{else}>
-  <{$lang_nonefound}>
+<{$lang_nonefound}>
 <{/if}>

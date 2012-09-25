@@ -27,9 +27,9 @@
 include "../../mainfile.php";
 
 $op = "form";
-if ( isset($_POST['op']) && $_POST['op'] == "submit" ) {
+//if ( isset($_POST['op']) && $_POST['op'] == "submit" ) {
 	$op = "submit";
-}
+//}
 
 if ( $op == "form" ) {
 	$xoopsOption['template_main'] = 'xoopsmembers_searchform.html';
@@ -340,7 +340,7 @@ if ( $op == "submit" ) {
 		$criteria->setLimit($limit);
 		$foundusers =& $member_handler->getUsers($criteria, true);
 		foreach (array_keys($foundusers) as $j) {
-			$userdata['avatar'] = $foundusers[$j]->getVar("user_avatar") ? "<img src='".XOOPS_UPLOAD_URL."/".$foundusers[$j]->getVar("user_avatar")."' alt='' />" : "&nbsp;";
+			$userdata['avatar'] = $foundusers[$j]->getVar("user_avatar") ? "<img class='xoopsmembers_avator' src='".XOOPS_UPLOAD_URL."/".$foundusers[$j]->getVar("user_avatar")."' alt='' />" : "&nbsp;";
 			$userdata['realname'] = $foundusers[$j]->getVar("name") ? $foundusers[$j]->getVar("name") : "&nbsp;";
 			$userdata['name'] = $foundusers[$j]->getVar("uname");
 			$userdata['id'] = $foundusers[$j]->getVar("uid");
