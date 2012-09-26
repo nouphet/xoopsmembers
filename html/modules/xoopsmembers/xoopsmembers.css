@@ -1,0 +1,16 @@
+.membersUserAvatarBox {
+	text-align: center;
+}
+
+.membersUser {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.membersLeftColumn {
+	width: 30%;
+}
+
+.membersRightColumn {
+	width: 70%;
+}
