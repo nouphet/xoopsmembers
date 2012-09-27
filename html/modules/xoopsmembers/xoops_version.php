@@ -24,10 +24,8 @@ $modversion['adminmenu'] = 'admin/menu.php' ;
 $modversion['hasMain'] = 1;
 
 // Templates
-$modversion['templates'][1]['file'] = 'xoopsmembers_searchform.html';
+$modversion['templates'][1]['file'] = 'xoopsmembers_index.html';
 $modversion['templates'][1]['description'] = '';
-$modversion['templates'][2]['file'] = 'xoopsmembers_searchresults.html';
-$modversion['templates'][2]['description'] = '';
 
 // Config
 $modversion['config'][] = array(

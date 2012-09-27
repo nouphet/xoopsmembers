@@ -23,5 +23,5 @@ $xoopsTpl->assign('total', $userGroupHandler->getCount($criteria));
 $xoopsTpl->assign('users', $userGroupHandler->getObjects($criteria));
 
 require_once XOOPS_ROOT_PATH."/header.php";
-$xoopsOption['template_main'] = 'xoopsmembers_searchresults.html';
+$xoopsOption['template_main'] = 'xoopsmembers_index.html';
 require_once XOOPS_ROOT_PATH."/footer.php";
