@@ -14,7 +14,7 @@
 			<td class="odd membersLeftColumn">
 				<div class="membersUserAvatarBox">
 					<a href="<{$xoops_url}>/userinfo.php?uid=<{$user->get('uid')}>">
-						<img src="<{$user->get('uid')|xoops_user_avatarize}>" class="memberUserAvatar" />
+						<img src="<{$user->getAvatarUrl()}>" class="memberUserAvatar" />
 					</a>
 				</div>
 			</td>
@@ -43,3 +43,5 @@
 		</tr>
 	</table>
 <{/foreach}>
+
+<div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavigator}></div>

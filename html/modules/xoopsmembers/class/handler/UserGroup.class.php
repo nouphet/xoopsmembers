@@ -1,10 +1,29 @@
 <?php
 
+class Xoopsmembers_UserGroup extends XoopsUser
+{
+	/**
+	 * Return avatar URL
+	 * @return string
+	 */
+	public function getAvatarUrl()
+	{
+		if ( $this->get('user_avatar') != "blank.gif" and file_exists(XOOPS_UPLOAD_PATH . "/" . $this->get('user_avatar')) )
+		{
+			return XOOPS_UPLOAD_URL . "/" . $this->getShow('user_avatar');
+		}
+		else
+		{
+			return XOOPS_URL . "/modules/user/images/no_avatar.gif";
+		}
+	}
+}
+
 class Xoopsmembers_UserGroupHandler extends XoopsObjectGenericHandler
 {
 	public $mTable = 'users';
 	public $mPrimary = 'uid';
-	public $mClass = 'XoopsUser';
+	public $mClass = 'Xoopsmembers_UserGroup';
 
 	/**
 	 * @param XoopsDatabase $db
@@ -105,7 +124,7 @@ class Xoopsmembers_UserGroupHandler extends XoopsObjectGenericHandler
 
 	public function getCount($criteria = null)
 	{
-		$sql = "SELECT COUNT(*) c FROM `".$this->mTable.'` AS u';
+		$sql = "SELECT COUNT(DISTINCT u.uid) AS c FROM `".$this->mTable.'` AS u';
 		$sql .= ' LEFT JOIN '.$this->db->prefix('groups_users_link').' AS g ON u.uid = g.uid';
 
 		if ( $criteria !== null && is_a($criteria, 'CriteriaElement') )
@@ -117,8 +136,6 @@ class Xoopsmembers_UserGroupHandler extends XoopsObjectGenericHandler
 				$sql .= " WHERE ".$where;
 			}
 		}
-
-		$sql .= ' GROUP BY u.uid';
 
 		return $this->_getCount($sql);
 	}
