@@ -36,3 +36,11 @@ $modversion['config'][] = array(
 	'valuetype'   => 'array',
 	'default'     => array(XOOPS_GROUP_ADMIN, XOOPS_GROUP_USERS),
 );
+$modversion['config'][] = array(
+	'name'        => 'users_per_page',
+	'title'       => '_MI_MEMBERS_CONFIG_USERS_PER_PAGE',
+	'description' => '_MI_MEMBERS_CONFIG_USERS_PER_PAGE_DESC',
+	'formtype'    => 'textbox',
+	'valuetype'   => 'int',
+	'default'     => 20,
+);
