@@ -1,10 +1,29 @@
 <?php
 
+class Xoopsmembers_UserGroup extends XoopsUser
+{
+	/**
+	 * Return avatar URL
+	 * @return string
+	 */
+	public function getAvatarUrl()
+	{
+		if ( $this->get('user_avatar') != "blank.gif" and file_exists(XOOPS_UPLOAD_PATH . "/" . $this->get('user_avatar')) )
+		{
+			return XOOPS_UPLOAD_URL . "/" . $this->getShow('user_avatar');
+		}
+		else
+		{
+			return XOOPS_URL . "/modules/user/images/no_avatar.gif";
+		}
+	}
+}
+
 class Xoopsmembers_UserGroupHandler extends XoopsObjectGenericHandler
 {
 	public $mTable = 'users';
 	public $mPrimary = 'uid';
-	public $mClass = 'XoopsUser';
+	public $mClass = 'Xoopsmembers_UserGroup';
 
 	/**
 	 * @param XoopsDatabase $db
