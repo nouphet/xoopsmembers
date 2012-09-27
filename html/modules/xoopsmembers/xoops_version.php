@@ -24,10 +24,8 @@ $modversion['adminmenu'] = 'admin/menu.php' ;
 $modversion['hasMain'] = 1;
 
 // Templates
-$modversion['templates'][1]['file'] = 'xoopsmembers_searchform.html';
+$modversion['templates'][1]['file'] = 'xoopsmembers_index.html';
 $modversion['templates'][1]['description'] = '';
-$modversion['templates'][2]['file'] = 'xoopsmembers_searchresults.html';
-$modversion['templates'][2]['description'] = '';
 
 // Config
 $modversion['config'][] = array(
@@ -37,4 +35,12 @@ $modversion['config'][] = array(
 	'formtype'    => 'group_multi',
 	'valuetype'   => 'array',
 	'default'     => array(XOOPS_GROUP_ADMIN, XOOPS_GROUP_USERS),
+);
+$modversion['config'][] = array(
+	'name'        => 'users_per_page',
+	'title'       => '_MI_MEMBERS_CONFIG_USERS_PER_PAGE',
+	'description' => '_MI_MEMBERS_CONFIG_USERS_PER_PAGE_DESC',
+	'formtype'    => 'textbox',
+	'valuetype'   => 'int',
+	'default'     => 20,
 );
