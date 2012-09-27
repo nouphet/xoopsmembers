@@ -105,7 +105,7 @@ class Xoopsmembers_UserGroupHandler extends XoopsObjectGenericHandler
 
 	public function getCount($criteria = null)
 	{
-		$sql = "SELECT COUNT(*) c FROM `".$this->mTable.'` AS u';
+		$sql = "SELECT COUNT(DISTINCT u.uid) AS c FROM `".$this->mTable.'` AS u';
 		$sql .= ' LEFT JOIN '.$this->db->prefix('groups_users_link').' AS g ON u.uid = g.uid';
 
 		if ( $criteria !== null && is_a($criteria, 'CriteriaElement') )
@@ -117,8 +117,6 @@ class Xoopsmembers_UserGroupHandler extends XoopsObjectGenericHandler
 				$sql .= " WHERE ".$where;
 			}
 		}
-
-		$sql .= ' GROUP BY u.uid';
 
 		return $this->_getCount($sql);
 	}
