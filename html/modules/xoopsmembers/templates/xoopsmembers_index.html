@@ -1,12 +1,6 @@
 <link rel="stylesheet" type="text/css" href="xoopsmembers.css" />
 <h1><{$smarty.const._MI_MEMBERS_NAME}></h1>
 
-<{if $total > 0}>
-	<div><{$smarty.const._MM_USERSFOUND|sprintf:$total}></div>
-<{else}>
-	<div><{$smarty.const._MM_NOFOUND}></div>
-<{/if}>
-
 <{foreach item="user" from=$users}>
 	<{cycle reset=true print=false values="odd,even"}>
 	<table class="outer membersUser">
