@@ -1,20 +1,82 @@
-.membersUserAvatarBox {
-	text-align: center;
+.member {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: block;
+  background-color: #ff9700;
+  padding: 15px;
+  margin: 20px 0;
 }
-
-.membersUser {
-	width: 100%;
-	margin-bottom: 20px;
+.member .identity-block {
+  float: left;
+  width: 160px;
+  margin-right: 5px;
+  margin-bottom: 13px;
 }
-
-.membersLeftColumn {
-	width: 30%;
+.member .identity-block .avatar {
+  height: 160px;
+  width: 160px;
+  overflow: hidden;
+  margin-bottom: 5px;
 }
-
-.membersRightColumn {
-	width: 70%;
+.member .identity-block .avatar img {
+  width: 160px;
 }
-
-.pagenavi {
-	text-align: center;
+.member .identity-block .username {
+  margin-top: 5px;
+  padding: 0;
+  background-color: #ffffff;
+  color: #6e3c00;
+  line-height: 25px;
+  height: 25px;
+  text-align: center;
+  font-size: 16px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.member .identity-block .username a {
+  text-decoration: none;
+  color: #6e3c00;
+}
+.member .identity-block .username a:hover {
+  text-decoration: underline;
+  color: #6e3c00;
+}
+.member .account-block {
+  margin-left: 173px;
+  margin-bottom: 13px;
+}
+.member .account-row {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  padding: 0;
+  background-color: #ffffff;
+  min-height: 40px;
+  overflow: hidden;
+}
+.member .account-row .account-caption {
+  display: block;
+  display: table-cell;
+  width: 80px;
+  float: left;
+  background-color: #ffdeaf;
+  color: #ff9700;
+  text-align: center;
+  text-justify: inter-ideograph;
+  vertical-align: baseline;
+  padding-top: 10px;
+  padding-bottom: 32767px;
+  margin-bottom: -32767px;
+}
+.member .account-row .account-value {
+  color: #6e3c00;
+  padding: 10px 10px;
+  margin-left: 80px;
+}
+.member .member-body {
+  clear: both;
+  margin-top: 13px;
 }
