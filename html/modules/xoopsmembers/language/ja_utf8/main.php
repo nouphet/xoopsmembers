@@ -8,3 +8,4 @@ define('_MD_XOOPSMEMBERS_PHONETIC', 'フリガナ');
 define('_MD_XOOPSMEMBERS_NAME', '名前');
 define('_MD_XOOPSMEMBERS_COMPANRY', '所属');
 define('_MD_XOOPSMEMBERS_PHONE', '連絡先');
+define('_MD_XOOPSMEMBERS_SELF_INTRODUCTION', '自己紹介');
