@@ -2,6 +2,9 @@
 
 class Xoopsmembers_UserGroup extends XoopsUser
 {
+	/** @var null|XoopsSimpleObject */
+	protected $profile = null;
+
 	/**
 	 * Return avatar URL
 	 * @return string
@@ -16,6 +19,32 @@ class Xoopsmembers_UserGroup extends XoopsUser
 		{
 			return XOOPS_URL . "/modules/user/images/no_avatar.gif";
 		}
+	}
+
+	public function get($key)
+	{
+		if ( isset($this->vars[$key]) === true ) {
+			return parent::get($key);
+		}
+
+		return $this->_getProfile($key);
+	}
+
+	/**
+	 * @param string $key
+	 * @return mixed
+	 */
+	protected function _getProfile($key)
+	{
+		if ( $this->profile === null ) {
+			XCube_DelegateUtils::call('Legacy_Profile.GetProfile', new XCube_Ref($this->profile), $this->get('uid'));
+		}
+
+		if ( $this->profile instanceof XoopsSimpleObject ) {
+			return $this->profile->get($key);
+		}
+
+		return null;
 	}
 }
 

@@ -53,7 +53,9 @@
 		</div>
 		<div class="member-body">
 			<div class="account-row">
-				<div class="account-caption">自己紹介</div>
+				<div class="account-caption">
+					<{$smarty.const._MD_XOOPSMEMBERS_SELF_INTRODUCTION}>
+				</div>
 				<div class="account-value">
 					<{$user->get('self_introduction')|escape|nl2br}>
 				</div>
