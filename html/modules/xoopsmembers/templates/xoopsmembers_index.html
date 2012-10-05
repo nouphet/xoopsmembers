@@ -2,40 +2,64 @@
 <h1><{$smarty.const._MI_MEMBERS_NAME}></h1>
 
 <{foreach item="user" from=$users}>
-	<{cycle reset=true print=false values="odd,even"}>
-	<table class="outer membersUser">
-		<tr>
-			<td class="odd membersLeftColumn">
-				<div class="membersUserAvatarBox">
+	<div class="member">
+		<div class="member-head">
+			<div class="identity-block">
+				<div class="avatar">
 					<a href="<{$xoops_url}>/userinfo.php?uid=<{$user->get('uid')}>">
-						<img src="<{$user->getAvatarUrl()}>" class="memberUserAvatar" />
+						<img src="<{$user->getAvatarUrl()}>">
 					</a>
 				</div>
-			</td>
-			<td class="membersRightColumn">
-				<div class="membersUserProperties">
-					<div class="<{cycle values="odd,even"}>">
-						<a href="<{$xoops_url}>/userinfo.php?uid=<{$user->get('uid')}>"><{$user->get('uname')|escape}></a>
+				<div class="username">
+					<a href="<{$xoops_url}>/userinfo.php?uid=<{$user->get('uid')}>">
+						<{$user->get('uname')|escape}>
+					</a>
+				</div>
+			</div>
+			<div class="account-block">
+				<div class="account-row">
+					<div class="account-caption">
+						<{$smarty.const._MD_XOOPSMEMBERS_PHONETIC}>
 					</div>
-					<div class="<{cycle values="odd,even"}>">
-						<{$user->get('name')|escape}>
-					</div>
-					<div class="<{cycle values="odd,even"}>">
-						<{mailto address=$user->get('email') encode="javascript"}>
-					</div>
-					<div class="<{cycle values="odd,even"}>">
-						<a href="<{$user->get('url')|escape}>" rel="external"><{$user->get('url')|escape}></a>
-					</div>
-					<div class="<{cycle values="odd,even"}>">
-						<{$user->get('user_regdate')|xoops_formattimestamp:l}>
-					</div>
-					<div class="<{cycle values="odd,even"}>">
-						<{$user->get('last_login')|xoops_formattimestamp:l}>
+					<div class="account-value">
+						<{$user->get('furigana')|escape}>
 					</div>
 				</div>
-			</td>
-		</tr>
-	</table>
+				<div class="account-row">
+					<div class="account-caption">
+						<{$smarty.const._MD_XOOPSMEMBERS_NAME}>
+					</div>
+					<div class="account-value">
+						<{$user->get('name')|escape}>
+					</div>
+				</div>
+				<div class="account-row">
+					<div class="account-caption">
+						<{$smarty.const._MD_XOOPSMEMBERS_COMPANRY}>
+					</div>
+					<div class="account-value">
+						<{$user->get('campany')|escape}>
+					</div>
+				</div>
+				<div class="account-row">
+					<div class="account-caption">
+						<{$smarty.const._MD_XOOPSMEMBERS_PHONE}>
+					</div>
+					<div class="account-value">
+						<{$user->get('phone')|escape}>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="member-body">
+			<div class="account-row">
+				<div class="account-caption">自己紹介</div>
+				<div class="account-value">
+					<{$user->get('self_introduction')|escape|nl2br}>
+				</div>
+			</div>
+		</div>
+	</div>
 <{/foreach}>
 
 <div class="pagenavi"><{xoops_pagenavi pagenavi=$pageNavigator}></div>

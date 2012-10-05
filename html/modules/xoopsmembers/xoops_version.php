@@ -42,5 +42,5 @@ $modversion['config'][] = array(
 	'description' => '_MI_MEMBERS_CONFIG_USERS_PER_PAGE_DESC',
 	'formtype'    => 'textbox',
 	'valuetype'   => 'int',
-	'default'     => 20,
+	'default'     => 10,
 );
