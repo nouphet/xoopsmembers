@@ -5,7 +5,7 @@ defined( 'XOOPS_ROOT_PATH' ) or die;
 $mydirname = basename(dirname(__FILE__));
 
 $modversion['name'] = _MI_MEMBERS_NAME;
-$modversion['version'] = 1.02;
+$modversion['version'] = 2.00;
 $modversion['description'] = _MI_MEMBERS_DESC;
 $modversion['credits'] = 'nouphet';
 $modversion['author'] = 'nouphet https://github.com/nouphet/xoopsmembers';
@@ -42,5 +42,5 @@ $modversion['config'][] = array(
 	'description' => '_MI_MEMBERS_CONFIG_USERS_PER_PAGE_DESC',
 	'formtype'    => 'textbox',
 	'valuetype'   => 'int',
-	'default'     => 20,
+	'default'     => 10,
 );

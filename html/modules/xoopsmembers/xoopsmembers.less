@@ -1,0 +1,107 @@
+// colors
+@white: #fff;
+@brown: #6e3c00;
+@orange: #ff9700;
+@lightOrange: #ffdeaf;
+
+// layouts
+@outerSpace: 15px;
+@blockSpace: 13px;
+@interSpace: 5px;
+@identityBlockWdith: 160px;
+@radius: 2px;
+@accountCaptionWidth: 80px;
+
+// Border Radius
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+.member {
+	.border-radius(@radius);
+	display: block;
+	background-color: @orange;
+	padding: @outerSpace;
+	margin: 20px 0;
+
+	.identity-block {
+		float: left;
+		width: @identityBlockWdith;
+		margin-right: @interSpace;
+		margin-bottom: @blockSpace;
+
+		.avatar {
+			height: @identityBlockWdith;
+			width: @identityBlockWdith;
+			overflow: hidden;
+			margin-bottom: @interSpace;
+
+			img {
+				width: @identityBlockWdith;
+			}
+		}
+
+		.username {
+			margin-top: @interSpace;
+			padding: 0;
+			background-color: @white;
+			color: @brown;
+			line-height: 25px;
+			height: 25px;
+			text-align: center;
+			font-size: 16px;
+			.border-radius(@radius);
+
+			a {
+				text-decoration: none;
+				color: @brown;
+			}
+
+			a:hover {
+				text-decoration: underline;
+				color: @brown;
+			}
+		}
+	}
+
+	.account-block {
+		margin-left: @identityBlockWdith + @blockSpace;
+		margin-bottom: @blockSpace;
+	}
+
+	.account-row {
+		.border-radius(@radius);
+		margin-bottom: @interSpace;
+		padding: 0;
+		background-color: @white;
+		min-height: 40px;
+		overflow: hidden;
+
+		.account-caption {
+			display: block;
+			display:table-cell;
+			width: @accountCaptionWidth;
+			float: left;
+			background-color: @lightOrange;
+			color: @orange;
+			text-align: center;
+			text-justify: inter-ideograph;
+			vertical-align: baseline;
+			padding-top: 10px;
+			padding-bottom: 32767px;
+			margin-bottom: -32767px;
+		}
+
+		.account-value {
+			color: @brown;
+			padding: 10px 10px;
+			margin-left: @accountCaptionWidth;
+		}
+	}
+
+	.member-body {
+		clear: both;
+		margin-top: @blockSpace;
+	}
+}
